@@ -197,6 +197,7 @@
 .model-summary .heading p {
   display: inline;
 }
+
 .model-summary .heading p span:first-child {
   height: 36px;
   width: 100px;
@@ -349,6 +350,12 @@
   position: relative;
   width: 342px;
   z-index: -1;
+}
+.slider .min-max {
+  position: absolute;
+  left: 45%;
+  top: 11px;
+  font-size: 12px !important;
 }
 
 .slider__track,

@@ -231,8 +231,9 @@ const Model = ({ data, min, max }) => {
                       <div ref={range} className="slider__range" />
                       <div className="slider__left-value">MIN</div>
                       <div className="slider__right-value">MAX</div>
-                      {/* <div className="slider__left-value">{minVal}</div>
-                      <div className="slider__right-value">{maxVal}</div> */}
+                      <div className="min-max">
+                        {minVal} - {maxVal}
+                      </div>
                     </div>
                   </div>
                 </div>
