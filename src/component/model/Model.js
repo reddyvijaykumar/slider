@@ -55,7 +55,7 @@ const Model = ({ data, min, max }) => {
   return (
     <div style={{ position: "relative" }}>
       <button
-        style={{ position: "absolute", top: "40vh", left: "20wh" }}
+        style={{ position: "absolute", top: "40vh" }}
         onClick={() => setModalIsOpen(true)}
       >
         Open modal
@@ -64,14 +64,14 @@ const Model = ({ data, min, max }) => {
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         style={{
-          overlay: {
-            position: "fixed",
-            top: "0px",
-            right: "0px",
-            bottom: "0px",
-            left: "0px",
-            backgroundColor: "rgba(255,255,255,0.3)",
-          },
+          // overlay: {
+          //   position: "fixed",
+          //   top: "0px",
+          //   right: "0px",
+          //   bottom: "0px",
+          //   left: "0px",
+          //   backgroundColor: "rgba(255,255,255,0.3)",
+          // },
           content: {
             border: "none",
             backgroundColor: "rgba(255,255,255,0.3)",

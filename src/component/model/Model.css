@@ -347,7 +347,7 @@
 /* SLIDER */
 .slider {
   position: relative;
-  width: 200px;
+  width: 342px;
   z-index: -1;
 }
 
@@ -404,7 +404,7 @@
   pointer-events: none;
   position: absolute;
   height: 0;
-  width: 200px;
+  width: 342px;
   outline: none;
 }
 
