@@ -107,6 +107,8 @@ const Model = ({ data, min, max }) => {
                 setModalIsOpen(false);
                 setSwipeModel(false);
                 setHeight(false);
+                setMinVal(min);
+                setMaxVal(max);
               }}
             >
               &times;
