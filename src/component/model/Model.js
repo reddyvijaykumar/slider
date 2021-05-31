@@ -3,6 +3,8 @@ import "./Model.css";
 import Modal from "react-modal";
 
 const Model = ({ data, min, max }) => {
+  const resetMinVal = min;
+  const resetMaxVal = max;
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [swipeModel, setSwipeModel] = useState(false);
   const [height, setHeight] = useState(false);
@@ -30,7 +32,19 @@ const Model = ({ data, min, max }) => {
 
   useEffect(() => {
     summaryHandler();
-  }, [modalIsOpen]);
+    maxValRef.current = resetMaxVal;
+    minValRef.current = resetMinVal;
+  }, [modalIsOpen, resetMaxVal, resetMinVal]);
+
+  useEffect(() => {
+    summaryHandler();
+    maxValRef.current = resetMaxVal;
+    minValRef.current = resetMinVal;
+  }, [swipeModel, resetMaxVal, resetMinVal]);
+
+  // useEffect(() => {
+  //   summaryHandler();
+  // }, [modalIsOpen, resetMaxVal, resetMinVal]);
 
   // Set width of the range to decrease from the left side
   useEffect(() => {
@@ -41,7 +55,7 @@ const Model = ({ data, min, max }) => {
       range.current.style.left = `${minPercent}%`;
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [minVal, getPercent, modalIsOpen]);
+  }, [minVal, getPercent]);
 
   // Set width of the range to decrease from the right side
   useEffect(() => {
@@ -51,7 +65,7 @@ const Model = ({ data, min, max }) => {
     if (range.current) {
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [maxVal, getPercent, modalIsOpen]);
+  }, [maxVal, getPercent]);
 
   return (
     <div style={{ position: "relative" }}>
