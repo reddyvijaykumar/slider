@@ -62,7 +62,7 @@ const Model = ({ data, min, max }) => {
       {data.map((re, index) => {
         return (
           <button
-            style={{ position: "absolute", top: "40vh" }}
+            style={{ position: "absolute", top: "40vh", left: "30%" }}
             onClick={() => setModalIsOpen(true)}
           >
             {re.study_name}
