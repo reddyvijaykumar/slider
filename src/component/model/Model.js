@@ -30,7 +30,7 @@ const Model = ({ data, min, max }) => {
 
   useEffect(() => {
     summaryHandler();
-  });
+  }, [modalIsOpen]);
 
   // Set width of the range to decrease from the left side
   useEffect(() => {
@@ -41,7 +41,7 @@ const Model = ({ data, min, max }) => {
       range.current.style.left = `${minPercent}%`;
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [minVal, getPercent]);
+  }, [minVal, getPercent, modalIsOpen]);
 
   // Set width of the range to decrease from the right side
   useEffect(() => {
@@ -51,7 +51,7 @@ const Model = ({ data, min, max }) => {
     if (range.current) {
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [maxVal, getPercent]);
+  }, [maxVal, getPercent, modalIsOpen]);
 
   return (
     <div style={{ position: "relative" }}>
