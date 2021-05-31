@@ -7,6 +7,7 @@ const Model = ({ data, min, max }) => {
   const [swipeModel, setSwipeModel] = useState(false);
   const [height, setHeight] = useState(false);
   const [summary, setSummary] = useState([]);
+  const [summaryTitle, setSummaryTitle] = useState("");
 
   // slider
   const [minVal, setMinVal] = useState(min);
@@ -54,12 +55,21 @@ const Model = ({ data, min, max }) => {
 
   return (
     <div style={{ position: "relative" }}>
-      <button
+      {/* <button
         style={{ position: "absolute", top: "40vh" }}
         onClick={() => setModalIsOpen(true)}
-      >
-        Open modal
-      </button>
+      > */}
+      {data.map((re, index) => {
+        return (
+          <button
+            style={{ position: "absolute", top: "40vh" }}
+            onClick={() => setModalIsOpen(true)}
+          >
+            {re.study_name}
+          </button>
+        );
+      })}
+      {/* </button> */}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
@@ -132,6 +142,7 @@ const Model = ({ data, min, max }) => {
                                 summaryHandler(feature.summary);
                                 // heightHandler(true);
                                 setHeight(true);
+                                setSummaryTitle(feature.name);
                               }}
                             >
                               {feature.name}
@@ -168,7 +179,7 @@ const Model = ({ data, min, max }) => {
                     &lang;
                   </button>
                   <p>
-                    <span> Subject</span> <span>Ages</span>
+                    <span> Subject</span> <span>{summaryTitle}</span>
                   </p>
                 </div>
 
