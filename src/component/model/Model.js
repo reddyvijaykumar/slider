@@ -183,7 +183,13 @@ const Model = ({ data, min, max }) => {
                   </p>
                 </div>
 
-                <p id="title">SUMMARY</p>
+                {data.map((item, index) => {
+                  return (
+                    <p id="title" key={index}>
+                      {item.study_name}
+                    </p>
+                  );
+                })}
                 <div className="summary">
                   <ul>
                     {summary.map((result, index) => {
