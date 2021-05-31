@@ -36,16 +36,6 @@ const Model = ({ data, min, max }) => {
     minValRef.current = resetMinVal;
   }, [modalIsOpen, resetMaxVal, resetMinVal]);
 
-  useEffect(() => {
-    summaryHandler();
-    maxValRef.current = resetMaxVal;
-    minValRef.current = resetMinVal;
-  }, [swipeModel, resetMaxVal, resetMinVal]);
-
-  // useEffect(() => {
-  //   summaryHandler();
-  // }, [modalIsOpen, resetMaxVal, resetMinVal]);
-
   // Set width of the range to decrease from the left side
   useEffect(() => {
     const minPercent = getPercent(minVal);
@@ -69,10 +59,6 @@ const Model = ({ data, min, max }) => {
 
   return (
     <div style={{ position: "relative" }}>
-      {/* <button
-        style={{ position: "absolute", top: "40vh" }}
-        onClick={() => setModalIsOpen(true)}
-      > */}
       {data.map((re, index) => {
         return (
           <button
@@ -83,7 +69,6 @@ const Model = ({ data, min, max }) => {
           </button>
         );
       })}
-      {/* </button> */}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
@@ -113,7 +98,6 @@ const Model = ({ data, min, max }) => {
         <div
           className={`model ${height ? "model-height" : "model-height-normal"}`}
         >
-          {/* <div className="model"> */}
           <div className="model-container">
             <button
               className="close"
@@ -139,13 +123,6 @@ const Model = ({ data, min, max }) => {
                     </p>
                   );
                 })}
-                {/* <button
-                  className="feature-close"
-                  onClick={() => setModalIsOpen(false)}
-                >
-                  X
-                </button> */}
-                {/* <div className="feature-title-close"></div> */}
                 <div className="list">
                   <ul>
                     {data.map((item, index) => {
@@ -156,7 +133,6 @@ const Model = ({ data, min, max }) => {
                               onClick={() => {
                                 setSwipeModel(true);
                                 summaryHandler(feature.summary);
-                                // heightHandler(true);
                                 setHeight(true);
                                 setSummaryTitle(feature.name);
                               }}
@@ -168,7 +144,6 @@ const Model = ({ data, min, max }) => {
                                 onClick={() => {
                                   setSwipeModel(true);
                                   summaryHandler(feature.summary);
-                                  // heightHandler(false);
                                   setHeight(true);
                                 }}
                               >
